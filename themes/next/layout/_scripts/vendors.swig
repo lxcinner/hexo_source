@@ -7,20 +7,20 @@
 {%- endif %}
 
 {%- if theme.fancybox %}
-  {%- set js_vendors.jquery = '//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js' %}
-  {%- set js_vendors.fancybox = '//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js' %}
+  {%- set js_vendors.jquery = '/libs/jquery.min.js' %}
+  {%- set js_vendors.fancybox = '/libs/fancybox/jquery.fancybox.min.js' %}
 {%- endif %}
 
 {%- if theme.mediumzoom %}
-  {%- set js_vendors.mediumzoom = '//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js' %}
+  {%- set js_vendors.mediumzoom = '/libs/mediumzoom/medium-zoom.min.js' %}
 {%- endif %}
 
 {%- if theme.lazyload %}
-  {%- set js_vendors.lazyload = '//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js' %}
+  {%- set js_vendors.lazyload = '/libs/lozad/lozad.min.js' %}
 {%- endif %}
 
 {%- if theme.pangu %}
-  {%- set js_vendors.pangu = '//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js' %}
+  {%- set js_vendors.pangu = '/libs/pangu/pangu.min.js' %}
 {%- endif %}
 
 {%- if theme.motion.enable %}

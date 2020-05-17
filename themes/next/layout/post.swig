@@ -2,7 +2,6 @@
 {% import '_macro/sidebar.swig' as sidebar_template %}
 
 {% block title %}{{ page.title }} | {{ title }}{% endblock %}
-
 {% block content %}
 
   <div id="posts" class="posts-expand">

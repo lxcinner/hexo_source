@@ -184,7 +184,7 @@
         float: right;
       }
   </style>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/default.min.css">
+  <link rel="stylesheet" href="/libs/styles/default.min.css">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang or page.language or config.language }}">

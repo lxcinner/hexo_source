@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="{{ font_awesome_uri }}">
 
 {%- if theme.fancybox %}
-  {%- set fancybox_css_uri = theme.vendors.fancybox_css | default(next_vendors('//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css')) %}
+  {%- set fancybox_css_uri = theme.vendors.fancybox_css %}
   <link rel="stylesheet" href="{{ fancybox_css_uri }}">
 {%- endif %}
 
@@ -92,13 +92,6 @@
     mediumzoom: {{ theme.mediumzoom }},
     lazyload: {{ theme.lazyload }},
     pangu: {{ theme.pangu }},
-    algolia: {
-      appID: '{{ config.algolia.applicationID }}',
-      apiKey: '{{ config.algolia.apiKey }}',
-      indexName: '{{ config.algolia.indexName }}',
-      hits: {{ theme.algolia_search.hits | json_encode }},
-      labels: {{ theme.algolia_search.labels | json_encode }}
-    },
     localsearch: {{ theme.local_search | json_encode }},
     path: '{{ config.search.path }}',
     motion: {{ theme.motion | json_encode }},

@@ -1,3 +1,27 @@
+  <script type="text/javascript" src="/libs/html2pdf/html2pdf.bundle.min.js"></script>
+  <script>
+    window.onload = function(){
+      printBtn.onclick = function(){
+        title = document.querySelector(".post-title").innerText;
+        var element = document.getElementById('posts');
+        var opt = {
+          margin:       10,
+          filename:     title + '.pdf'
+        };
+        html2pdf(element,opt).then(()=>{window.location.href=window.location.href;});
+        //window.location.href=window.location.href; 
+        // var element = prnhtml;
+        // var opt = {
+        //   margin:       10,
+        //   filename:     title + '.pdf',
+        //   image:        { type: 'jpeg', quality: 0.98 },
+        //   html2canvas:  { scale: 2 },
+        //   jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        // };
+        // html2pdf().set(opt).from(element).save();
+      }
+    }
+  </script>
   <article itemscope itemtype="http://schema.org/Article">
   {##################}
   {### POST BLOCK ###}
@@ -14,7 +38,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="{{ title }}">
     </span>
-
     {%- if post.header !== false %}
       <header class="post-header">
         <{%- if theme.seo %}h2{% else %}h1{%- endif %} class="post-title{%- if post.direction and post.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}" itemprop="name headline">{#
@@ -41,7 +64,7 @@
           {%- endif %}
         </{%- if theme.seo %}h2{% else %}h1{%- endif %}>
 
-        <div class="post-meta">
+        <div class="post-meta noprint">
 
           {%- set date_diff = date(post.date) != date(post.updated) %}
           {%- set time_diff = time(post.date) != time(post.updated) %}
@@ -218,6 +241,7 @@
           {{ post.content }}
         {%- endif %}
       {% else %}
+        <button id="printBtn" class="noprint">下载为PDF</button>
         {{ post.content }}
       {%- endif %}
     </div>
@@ -249,8 +273,7 @@
       {%- if theme.creative_commons.license and theme.creative_commons.post %}
         {% include '../_partials/post/post-copyright.swig' with { post: post } %}
       {%- endif %}
-
-      <footer class="post-footer">
+      <footer class="post-footer noprint">
         {%- if post.tags and post.tags.length %}
           {%- if theme.tag_icon %}
             {%- set tag_indicate = '<i class="fa fa-tag"></i>' %}
@@ -301,3 +324,4 @@
   {### END POST BLOCK ###}
   {######################}
   </article>
+  
